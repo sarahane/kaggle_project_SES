@@ -1,0 +1,17 @@
+We will use a filtered dataset for face recognition on LFW. Out of the 5749 people in the LFW dataset, many of them have only 1 or 2 images which makes them unsuitable candidates for training a face classifier. Hence, we filter out the persons with at least 70 images in the dataset, and end up with 7 classes. We also crop and resize each image from 250 x 250 to 50 x 37 (less dimensions to work with too!) and split the data into train and test. Images are single-channel with pixel intensity represented by a float value from 0 to 255, the single-channel intensity is the mean value of the original RGB channel intensities.
+
+Final details of dataset
+
+Number of data: 1288 (966 train, 322 test)
+Number of features: 1850 (50 x 37 pixels after resizing and cropping)
+Number of classes: 7
+
+File descriptions
+
+X_train.npy: training data numpy array. Each row in the array corresponds to an image unrolled to a vector (50 x 37 = 1850 dimension)
+
+y_train.npy: labels (0-6) of each data corresponding to the image in the same row in X_train.npy
+
+X_test.npy: testing data numpy array for evaluation of your models. The prediction outputs on this test data is to be submitted for scoreboard
+
+All files are saved as numpy arrays, you can load them using numpy.load.
